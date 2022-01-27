@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import Form1 from "./form/Form1";
+import StateEg from "./study/StateEg";
+import TimeChange from "./study/TimeChange";
+import TimeChange1 from "./study/TimeChange1";
+import Greeting from "./study/Greeting";
+import {Route,BrowserRouter, Routes} from 'react-router-dom'
+import Layout from "./form/Layout";
+import Todo from "./Todo/Todo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App=()=>{
+    return(
+      <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<Layout/>} >
+          <Route path="/greeting" element={<Greeting/>}></Route>  
+          <Route path="/currentTime" element={<TimeChange/>}/>
+          <Route path="/runningTime" element={<TimeChange1/>}/>
+          <Route path="/stateEg" element={<StateEg/>}/>
+          <Route path="/form" element={<Form1/>}/>
+          <Route path="/todo" element={<Todo/>}/>
+          </Route>
+      </Routes>
+      </BrowserRouter>
+    )
+
 }
-
 export default App;
